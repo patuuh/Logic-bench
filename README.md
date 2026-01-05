@@ -16,7 +16,7 @@ These flaws are often missed by traditional SAST/DAST tools because they require
 
 * **Mass Assignment:** The `update_settings` endpoint iterates over provided JSON keys to construct the SQL update. An attacker can inject fields like `"is_admin": 1` or `"balance": 99999` to modify protected columns.
 
-* **SQL Injection via Column Names:** The `update_settings` endpoint uses string formatting (f"{col} = ?") to build the SET clause. An attacker can inject arbitrary SQL (e.g., "balance = 0 --") to comment out the WHERE clause, affecting all users.
+* **SQL Injection via Column Names:** The `update_settings` endpoint uses string formatting (`f"{col} = ?"`) to build the SET clause. An attacker can inject arbitrary SQL (e.g., `balance = 0 --`) to comment out the WHERE clause, affecting all users.
 
 ### 2. FlashSale (flashSale.py)
 
