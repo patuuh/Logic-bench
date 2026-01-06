@@ -4,7 +4,7 @@ This repository contains a collection of micro-applications written in Python (F
 
 These flaws are often missed by traditional SAST/DAST tools because they require understanding the *intent* of the code rather than just its syntax.
 
-## Benchmark Vulnerability Summary
+## Benchmark Vulnerability Summary (21 vulnerabilities)
 
 ### 1. BadRewards (rewards.py)
 
