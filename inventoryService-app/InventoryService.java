@@ -29,8 +29,6 @@ public class InventoryService {
 
     @Autowired
     private ProductRepository productRepository;
-
-    // --- VULNERABILITY 1: SpEL Injection (The "Dynamic Filter") ---
     
     @GetMapping("/products/search")
     public Object searchProducts(@RequestParam String filter) {
@@ -54,8 +52,6 @@ public class InventoryService {
             return ResponseEntity.badRequest().body("Invalid filter expression");
         }
     }
-
-    // --- VULNERABILITY 2: XXE (The "Legacy Import") ---
 
     @PostMapping("/inventory/import-config")
     public ResponseEntity<String> importConfig(@RequestBody String xmlConfig) {
@@ -84,8 +80,6 @@ public class InventoryService {
             return ResponseEntity.status(500).body("XML Processing Error");
         }
     }
-
-    // --- VULNERABILITY 3: Race Condition (The "Transactional" Trap) ---
 
     @PostMapping("/orders/reserve")
     @Transactional // Ensures ACID properties... or does it?
